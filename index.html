@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kinetix Labs</title>
+  <meta name="description" content="Kinetix Labs builds Kinetix POS, a modern point-of-sale system for restaurants and franchises. Coming soon.">
+  <link rel="canonical" href="https://kinetixlab.co.uk/">
+  <meta property="og:title" content="Kinetix Labs">
+  <meta property="og:description" content="Kinetix POS: a modern point-of-sale system for restaurants and franchises. Coming soon.">
+  <meta property="og:url" content="https://kinetixlab.co.uk/">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230f766e'/%3E%3Cpath d='M10 8v16M10 16l9-8M13 13l7 11' stroke='white' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --bg: #f8faf9;
+      --surface: #ffffff;
+      --text: #14201d;
+      --muted: #55625e;
+      --border: #dde5e2;
+      --accent: #0f766e;
+      --accent-soft: #e0f2ef;
+      --amber: #92400e;
+      --amber-soft: #fef3c7;
+      --slate-soft: #eef1f4;
+      --slate: #475569;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0d1413;
+        --surface: #131d1b;
+        --text: #e6eeec;
+        --muted: #9aa8a4;
+        --border: #24312e;
+        --accent: #2dd4bf;
+        --accent-soft: #123532;
+        --amber: #fcd34d;
+        --amber-soft: #3a2c0b;
+        --slate-soft: #1e2833;
+        --slate: #b6c2d1;
+      }
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+    }
+    a { color: var(--accent); }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+
+    header.top { border-bottom: 1px solid var(--border); background: var(--surface); }
+    header.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.15rem; color: var(--text); text-decoration: none; }
+    .brand svg { flex: none; }
+    nav a { color: var(--muted); text-decoration: none; margin-inline-start: 20px; font-size: 0.95rem; }
+    nav a:hover { color: var(--text); }
+
+    .hero { padding: 80px 0 64px; }
+    .pill {
+      display: inline-block; padding: 4px 12px; border-radius: 999px;
+      background: var(--amber-soft); color: var(--amber);
+      font-size: 0.85rem; font-weight: 600; letter-spacing: 0.02em;
+    }
+    .hero h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1.1; margin: 18px 0 16px; letter-spacing: -0.02em; }
+    .hero h1 span { color: var(--accent); }
+    .hero p { font-size: 1.15rem; color: var(--muted); max-width: 640px; margin: 0 0 28px; }
+    .btn {
+      display: inline-block; padding: 12px 22px; border-radius: 10px;
+      background: var(--accent); color: var(--surface); font-weight: 600; text-decoration: none;
+    }
+    .btn.secondary { background: transparent; color: var(--text); border: 1px solid var(--border); margin-inline-start: 10px; }
+
+    section { padding: 56px 0; }
+    section + section { border-top: 1px solid var(--border); }
+    h2 { font-size: 1.75rem; margin: 0 0 8px; letter-spacing: -0.01em; }
+    .lead { color: var(--muted); margin: 0 0 32px; max-width: 680px; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 16px; }
+    .card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+      padding: 20px 22px;
+    }
+    .card h3 { margin: 0 0 6px; font-size: 1.05rem; }
+    .card p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+    .tag { display: inline-block; margin-bottom: 10px; font-size: 0.75rem; font-weight: 600; padding: 2px 10px; border-radius: 999px; }
+    .tag.progress { background: var(--accent-soft); color: var(--accent); }
+    .tag.planned { background: var(--slate-soft); color: var(--slate); }
+
+    .legend { display: flex; gap: 16px; flex-wrap: wrap; margin: -16px 0 28px; font-size: 0.9rem; color: var(--muted); }
+
+    .about { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+    .about p { margin: 0 0 12px; color: var(--muted); }
+
+    .contact { text-align: center; }
+    .contact p { color: var(--muted); }
+    .contact .btn { margin-top: 8px; }
+
+    footer { border-top: 1px solid var(--border); padding: 28px 0; color: var(--muted); font-size: 0.875rem; }
+    footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+
+    @media (max-width: 640px) {
+      nav { display: none; }
+      .hero { padding: 56px 0 44px; }
+      .about { grid-template-columns: 1fr; }
+      .btn.secondary { margin-inline-start: 0; margin-top: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <a class="brand" href="#">
+        <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#0f766e"/><path d="M10 8v16M10 16l9-8M13 13l7 11" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+        Kinetix Labs
+      </a>
+      <nav aria-label="Main">
+        <a href="#pos">Kinetix POS</a>
+        <a href="#features">Features</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap hero" id="pos">
+      <span class="pill">Kinetix POS: coming soon</span>
+      <h1>Point of sale for restaurants <span>and franchises</span>.</h1>
+      <p>Kinetix POS takes care of the till, the kitchen, stock and purchasing in one system, for a single site or a whole franchise. We're building it now and it isn't on sale yet.</p>
+      <a class="btn" href="mailto:kinetixlabs@outlook.com?subject=Kinetix%20POS%20early%20access">Register interest</a>
+      <a class="btn secondary" href="#features">See the features</a>
+    </div>
+
+    <section id="features">
+      <div class="wrap">
+        <h2>What Kinetix POS does</h2>
+        <p class="lead">Many of these features already work in development builds. The rest are on the roadmap for the first release.</p>
+        <div class="legend">
+          <span><span class="tag progress">In progress</span> being built and tested now</span>
+          <span><span class="tag planned">Planned</span> on the roadmap</span>
+        </div>
+        <div class="grid">
+          <div class="card"><span class="tag progress">In progress</span><h3>Fast register</h3><p>A touch-friendly ordering screen for counter, dine-in and takeaway, with modifiers, options and live totals.</p></div>
+          <div class="card"><span class="tag progress">In progress</span><h3>Menus, deals and promotions</h3><p>Menu items with option groups, meal deals built from your menu, and scheduled promotions.</p></div>
+          <div class="card"><span class="tag progress">In progress</span><h3>Kitchen display (KDS)</h3><p>Orders go straight to kitchen stations and the pass. Changes made after an order is sent show up as clear notices.</p></div>
+          <div class="card"><span class="tag progress">In progress</span><h3>Till and cash management</h3><p>Till sessions with an opening float, a cash ledger, blind counts, variance approval, and X and Z reports.</p></div>
+          <div class="card"><span class="tag progress">In progress</span><h3>Payments</h3><p>Cash and split tenders, change, and refunds now. Card payments through integrated terminals come next.</p></div>
+          <div class="card"><span class="tag progress">In progress</span><h3>Inventory</h3><p>Stock levels for each store, kept accurate by recipes and reservations, with stock counts and a full movement history.</p></div>
+          <div class="card"><span class="tag progress">In progress</span><h3>Purchasing and receiving</h3><p>Purchase orders, supplier packaging, and goods receiving that updates stock as deliveries arrive.</p></div>
+          <div class="card"><span class="tag progress">In progress</span><h3>Product catalogue</h3><p>Head office keeps one catalogue of products, variants and SKUs, which every store then sells from.</p></div>
+          <div class="card"><span class="tag progress">In progress</span><h3>Multi-store and franchise</h3><p>Several businesses and stores on one platform, with role-based access for head office, owners and managers.</p></div>
+          <div class="card"><span class="tag progress">In progress</span><h3>UK VAT</h3><p>Tax is calculated on the server, and purchase tax is kept separate from sales tax.</p></div>
+          <div class="card"><span class="tag planned">Planned</span><h3>Delivery platform integration</h3><p>Orders from food delivery apps come into the same kitchen and stock flow as every other order.</p></div>
+          <div class="card"><span class="tag planned">Planned</span><h3>Devices and peripherals</h3><p>Receipt and kitchen printers, cash drawers, scanners and scales, with devices registered and paired to each store.</p></div>
+          <div class="card"><span class="tag planned">Planned</span><h3>Self-service kiosk and customer display</h3><p>Customers can order at a kiosk, and a second screen shows them their order and total.</p></div>
+          <div class="card"><span class="tag planned">Planned</span><h3>Reporting</h3><p>Sales, stock and till reports for each store and across the whole business.</p></div>
+          <div class="card"><span class="tag planned">Planned</span><h3>Staff PINs and manager overrides</h3><p>Staff switch quickly on shared terminals, and voids, refunds and discounts need an audited manager approval.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap about">
+        <div>
+          <h2>About Kinetix Labs</h2>
+          <p>Kinetix Labs is a UK software studio that builds practical tools for hospitality businesses. Kinetix POS is our first product.</p>
+        </div>
+        <div>
+          <p>Kinetix Labs is a trading name of <strong>Kinetic Goods Ltd</strong>, a private limited company.</p>
+          <p>We're building Kinetix POS with operators, so tell us what your restaurant needs.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="wrap">
+        <h2>Get in touch</h2>
+        <p>Ask for early access, offer to run a pilot, or just say hello.</p>
+        <a class="btn" href="mailto:kinetixlabs@outlook.com">kinetixlabs@outlook.com</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>&copy; <span id="y">2026</span> Kinetic Goods Ltd. Kinetix Labs and Kinetix POS are trading names of Kinetic Goods Ltd.</span>
+      <a href="mailto:kinetixlabs@outlook.com">kinetixlabs@outlook.com</a>
+    </div>
+  </footer>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
